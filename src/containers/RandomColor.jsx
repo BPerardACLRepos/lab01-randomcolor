@@ -13,13 +13,15 @@ export default class RandomColor extends Component {
         const colors = ['pink', 'red', 'yellow', 'green', 'blue'];
         const color = colors[Math.floor(Math.random() * colors.length)];
         this.handleBackgroundChange(color);
-    }
+    };
 
-    cycleColor = setInterval(this.randomColor, 1000);
+    cycleColor = () => {
+        setInterval(this.randomColor, 1000);
+    };
 
     render() {
         const { background } = this.state;
-
+        this.cycleColor();
         return (
             <>
                 <Display background={background} />
