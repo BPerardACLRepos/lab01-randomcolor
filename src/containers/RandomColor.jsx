@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Display from '../components/display/Display';
 
 export default class RandomColor extends Component {
     state = {
-        background: '#FFF',
+        background: 'green',
     };
 
     handleBackgroundChange = (color) => {
@@ -19,9 +20,13 @@ export default class RandomColor extends Component {
         setInterval(this.randomColor, 1000);
     };
 
+    componentDidMount = () => {
+        this.cycleColor();
+    }
+
     render() {
         const { background } = this.state;
-        this.cycleColor();
+        console.log(this.state.background)
         return (
             <>
                 <Display background={background} />
